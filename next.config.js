@@ -10,6 +10,15 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.upanh.info',
       },
-    ],  },
+      {
+        protocol: 'https',
+        hostname: 'backend.dev.tichhop.pro',
+      },
+      {
+        protocol: 'https',
+        hostname: 'qltt.truongdang.online',
+      },
+    ],
+  },
 }
 module.exports = nextConfig

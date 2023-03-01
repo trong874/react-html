@@ -3,11 +3,12 @@ import Pagination from 'rsuite/Pagination';
 
 type propPagination = {
     total:number,
+    current_page:number,
     limit:number,
     callback: (page:number) => void;
 };
-function PaginationCustom ({total,limit,callback}:propPagination) {
-    const [activePage, setActivePage] = React.useState(1);
+function PaginationCustom ({total,current_page,limit,callback}:propPagination) {
+    const [activePage, setActivePage] = React.useState(current_page || 1);
 
     const handleChangePage = (page:number) => {
         setActivePage(page);

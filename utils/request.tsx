@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const request = axios.create({
-    baseURL: 'https://qltt.truongdang.online/api/v1/',
+    baseURL: 'https://backend.dev.tichhop.pro/api/v1',
 })
 const payload = {
-    domain: 'qltt-v2.frontend.theme.tichhop.pro',
-    secret_key: 'cEhRc1ZhODdzT2xxR0FZTFZkZGcrY3Z0OVF0N3JYeWd0aGVKbjllV2t4Yz0=',
+    domain: 'frontend.dev.tichhop.pro',
+    secret_key: 'RFVQRXdjOStnMjRlbjlIT0QwSXVGbTVuZ0RMMS9pSzM2Mk1vYXVFZ1dyOD0=',
 }
 
 const get = async (path:string,options = {}) => {
