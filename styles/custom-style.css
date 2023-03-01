@@ -1,0 +1,302 @@
+@tailwind utilities;
+:root {
+    --rs-body: #f5f5f5;
+    --rs-text-primary: #000;
+}
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    font-family: inherit;
+    font-size: inherit;
+}
+a,
+a:hover
+{
+    color: inherit;
+    text-decoration: inherit;
+}
+a:focus {
+    color: var(--rs-red-600);
+}
+.rs-modal-wrapper[data-centered="true"] {
+    display: flex;
+    align-items: center;
+}
+.rs-modal-wrapper[data-padding-zero="true"] .rs-modal-content,
+.rs-modal-wrapper[data-padding-zero="true"] .rs-modal-body
+{
+    padding: 0;
+}
+.rs-modal-wrapper[data-centered="true"] .rs-modal {
+    margin: 0 auto;
+}
+.rs-modal-xs {
+    width: 450px;
+}
+.rs-modal-lg {
+    width: 1280px;
+}
+
+.rs-input.custom-input {
+    border-color: rgba(30,64,175,1);
+    height: 2.75rem;
+}
+.rs-input.custom-input:focus {
+    outline: none;
+    border-color: rgba(30,64,175,1);
+    outline-offset: 2px;
+}
+
+.rs-input.custom-input-gray,
+.rs-input.custom-input-gray:hover
+{
+    border-color: rgba(212,212,212,1);
+    background-color: #fff;
+}
+.rs-input.custom-input-gray:focus {
+    outline: none;
+    outline-offset: 2px;
+}
+.react-tabs__tab-list {
+    display: flex;
+    justify-content: space-between;
+}
+.react-tabs__tab {
+    border: 0;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+}
+.react-tabs__tab--selected {
+    border: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.tab-title {
+    transition: color .15s;
+}
+.react-tabs__tab--selected .tab-title{
+    color: #dc2626;
+}
+
+.tw-new {
+    color: #fff!important;
+    border-color: hsla(0,0%,57.3%,0)!important;
+    background: url(/voucher3.png);
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
+    cursor: default;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    background-size: 105% 80% !important;
+    background-position: center !important;
+}
+.tw-new-id {
+    color: #fff!important;
+    background: url(/voucher3.png);
+    background-size: 100% 90%;
+    padding-left: 0.575rem;
+    padding-right: 0.575rem;
+}
+.tw-old {
+    color: #888;
+    border-color: #888;
+    text-decoration: line-through;
+}
+
+.text-xss {
+    font-size: .65rem!important;
+}
+
+.swiper-home .swiper-pagination-fraction{
+    background: rgba(47,47,47,.62);
+    color: #fff;
+    border-radius:.25rem;
+    width:auto;
+    padding:0 .25rem;
+    left:auto;
+    right:5px;
+    bottom:10px;
+    font-weight: 700;
+    font-size: .75rem;
+}
+
+.c-control {
+    height:40px;
+}
+
+.c-control:focus,
+.c-control:hover:not(:disabled),
+.c-control .rs-picker-toggle.rs-btn:focus,
+.c-control .rs-picker-toggle.rs-btn:hover,
+.c-control:not(.rs-picker-disabled) .rs-picker-toggle-active
+{
+    border-color: #ee372d;
+}
+.c-control:focus,
+.c-control:focus-visible,
+.c-control > *:focus-visible {
+    outline:none;
+}
+.c-control > * {
+    height:100%;
+}
+.c-control .rs-picker-toggle.rs-btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: none;
+}
+.custom-pagination .rs-pagination-btn {
+    border-radius:2px;
+    margin: 0 5px;
+    font-weight: 700;
+    font-size: 13px;
+}
+.custom-pagination .rs-pagination-btn.rs-pagination-btn-active{
+    background-color: #ee372d;
+    color: #fff;
+    border:0;
+}
+.custom-pagination .rs-pagination-btn.rs-pagination-btn-active:hover,
+.custom-pagination .rs-pagination-btn.rs-pagination-btn-active:focus
+{
+    border:0;
+    box-shadow: none;
+}
+
+.navigation-custom .swiper-button-prev,
+.navigation-custom .swiper-button-next {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    width: 27px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -22px;
+}
+.navigation-custom .swiper-button-prev {
+    left: 0;
+}
+.navigation-custom .swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    opacity: .35;
+    cursor: auto;
+    pointer-events: none;
+}
+
+.navigation-custom .swiper-slide span{
+    --tw-bg-opacity: 1;
+    background-color: rgba(115,115,115,var(--tw-bg-opacity));
+}
+.navigation-custom .swiper-slide span.active,
+.list-image-account span.active
+{
+    --tw-bg-opacity: 1;
+    background-color: rgba(185,28,28,var(--tw-bg-opacity));
+}
+.rs-dropdown-open.rs-dropdown-placement-bottom-start>.toggle-menu-profile ~.rs-dropdown-menu,
+.rs-dropdown-open.rs-dropdown-placement-top-start>.toggle-menu-profile ~ .rs-dropdown-menu {
+    left:-50%
+}
+
+.tabs-game .react-tabs__tab--selected > div{
+    background-color: rgba(239,68,68,1);
+    color: #FFF;
+    border-color: rgba(239,68,68,1);
+}
+.tabs-game .react-tabs__tab--selected span{
+    font-weight: 800;
+}
+
+.tabs-game .react-tabs__tab--selected > div:after{
+    content: "";
+    position: absolute;
+    top: 102%;
+    left: 50%;
+    margin-left: -8px;
+    border: 8px solid transparent;
+    border-top-color: #ef4444;
+}
+.focus\:outline-none:focus {
+    outline: none;
+    outline-offset: 2px;
+}
+.rs-popover {
+    z-index: 1000;
+}
+
+.close-white .rs-btn-close {
+    color:#FFFFFF;
+}
+.close-white .rs-btn-close:hover {
+    color:rgba(255,255,255,.5);
+}
+
+.select-card .rs-radio-checker {
+    border:1px solid
+}
+
+.custom-select {
+    margin-bottom: .75rem;
+}
+.custom-select .rs-picker-select {
+    height: 2.5rem;
+}
+.custom-select .rs-picker-select .rs-picker-toggle {
+    height: 100%;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.custom-select .rs-picker-select .rs-picker-toggle:focus-visible,
+.custom-select .rs-picker-select .rs-picker-toggle
+{
+    outline: none;
+    box-shadow: none;
+}
+
+.loader {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+    margin:15px auto;
+    position: absolute;
+    color: #FFF;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite alternate;
+    left:50%;
+    top:0;
+    z-index: 1;
+}
+
+@keyframes animloader {
+    0% {
+        box-shadow: -38px -6px, -14px 6px,  14px -6px;
+    }
+    33% {
+        box-shadow: -38px 6px, -14px -6px,  14px 6px;
+    }
+    66% {
+        box-shadow: -38px -6px, -14px 6px, 14px -6px;
+    }
+    100% {
+        box-shadow: -38px 6px, -14px -6px, 14px 6px;
+    }
+}
+
+.nav-active,
+.nav-active:hover,
+.nav-active:focus
+{
+    color: rgba(220,38,38,var(--tw-text-opacity));
+}
