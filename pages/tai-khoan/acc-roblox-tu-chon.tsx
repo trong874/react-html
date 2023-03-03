@@ -134,7 +134,7 @@ function AccountRoblox() {
             })}
         </div>
         <div className="py-8">
-            <PaginationCustom total={100} limit={20} callback={handlerCallbackPage}/>
+            <PaginationCustom total={100} limit={20} callback={handlerCallbackPage} current_page={1}/>
         </div>
     </>
 }
