@@ -1,14 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, {useEffect} from "react";
 import Marquee from "react-fast-marquee/dist";
 import {SelectPicker} from "rsuite";
 import {numb} from "@/utils/helper";
+import {useRouter} from "next/router";
 
 const Game = () => {
     const dataSelect = [1, 3, 5, 7, 10].map(
         (item) => ({label: `${item} lần - giá ${item *12}k` , value: item})
     );
+
+    const router = useRouter();
+
+    console.log(router.query)
+
+    useEffect(() => {
+        console.log(router.query)
+    },[])
+
     return <>
         <div className="grid grid-cols-12 gap-4 w-full mb-8 rounded p-0 md:p-2">
             <div className="col-span-12 md:col-span-8">

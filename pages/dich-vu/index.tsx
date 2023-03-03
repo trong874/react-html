@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as request from '@/utils/request';
 import {format_money, numb} from "@/utils/helper";
 import {useEffect, useState} from "react";
-import {Input, SelectPicker} from "rsuite";
+import {Input, Loader, SelectPicker} from "rsuite";
 import PaginationCustom from "@/components/PaginationCustom";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     return {
         props: {
             services: services.data,
-            page: page,
+            page: Number(page),
         }
     }
 }
@@ -32,7 +32,14 @@ const Card = ({service}: {service:any}) => {
         <div className="col-span-6 sm:col-span-6 md:col-span-3 bg-white shadow-sm rounded-b-sm border md:border-0 md:rounded-b relative">
             <Link href={`/dich-vu/${service.slug}`}>
                 <div className="relative" style={{paddingBottom:'55%'}}>
-                    <Image src={service.image} alt="" className="w-full rounded-t-sm md:rounded-t object-cover" fill sizes="auto"/>
+                    <Image src={service.image || '/placeholder-image.png'}
+                           alt=""
+                           className="w-full rounded-t-sm md:rounded-t object-cover"
+                           fill
+                           onError={(e) => {
+                               (e.target as HTMLImageElement).src = '/placeholder-image.png'
+                           }}
+                           sizes="auto"/>
                 </div>
                 <div className="col-span-12 px-2 py-3 h-36 md:h-28 relative">
                     <h4 className="sub-interface-title uppercase text-xs font-semibold text-gray-800 mb-0">
@@ -61,6 +68,7 @@ export default function ListService({services,page}: Props) {
     const dataSelect = ['10000', '20000', '50000', '100000', '200000', '500000'].map(
         (item) => ({label: numb(item, {suffix: ' đ'}), value: item})
     );
+
     const router = useRouter();
 
     const [currentPage,setCurrentPage] = useState(page || 1)
@@ -75,6 +83,11 @@ export default function ListService({services,page}: Props) {
     const [isLoading,setIsLoading] = useState(false);
 
     const handlerCallbackPage = async (page:number) => {
+        setIsLoading(true)
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        urlSearchParams.set('page',String(page));
+        const newUrl = `${window.location.pathname}?${urlSearchParams.toString()}`;
+        window.history.pushState({}, '', newUrl);
 
         const res = await request.get('/service',
             {
@@ -82,8 +95,12 @@ export default function ListService({services,page}: Props) {
                 page:page
             }).finally(() => {
                 window.scroll({
-                    top:0
+                    top:90
                 })
+            setIsLoading(false)
+        }).catch((e) => {
+            setIsLoading(false)
+            alert('Đã có lỗi xảy ra!')
         });
         setCurrentPage(page);
         const data_service = res.data;
@@ -109,7 +126,7 @@ export default function ListService({services,page}: Props) {
             DANH MỤC:
         </span>
         <h2 className="mb-2 text-red-500 text-lg font-bold uppercase">
-            ACC ROBLOX TỰ CHỌN
+            DỊCH VỤ
         </h2>
         <div className="mb-1">
             <b className="text-xs">
@@ -117,6 +134,7 @@ export default function ListService({services,page}: Props) {
             </b>
         </div>
         <div className="grid grid-cols-12 gap-3">
+            { isLoading && <Loader backdrop center size="md" content="Đang tải dữ liệu" vertical style={{zIndex:30}} />}
             <div className="col-span-12 md:col-span-3">
                 <Input className={'c-control'}
                        placeholder="ID - Ví dụ 123"
@@ -166,8 +184,8 @@ export default function ListService({services,page}: Props) {
         </div>
         <div className="py-8">
             <PaginationCustom current_page={currentPage}
-                              total={parseInt(services.total)}
-                              limit={parseInt(services.per_page)}
+                              total={Number(services.total)}
+                              limit={Number(services.per_page)}
                               callback={handlerCallbackPage}
             />
         </div>
