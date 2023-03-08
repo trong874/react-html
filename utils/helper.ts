@@ -5,6 +5,18 @@ export function format_money(n:number, d = 1) {
     return Math.round(n * d / p(10, x)) / d + " kMBTPE"[x / 3]
 }
 
+export function convertToSlug(text:string) {
+    text = text.toLowerCase();
+    const from = "áàảãạâấầẩẫậăắằẳẵặđéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ";
+    const to = "aaaaaaaaaaaaaaaaadeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyy";
+    for (let i = 0, length = from.length; i < length; i++) {
+        const char = from[i];
+        const pattern = new RegExp(char, "g");
+        text = text.replace(pattern, to[i]);
+    }
+    text = text.replace(/\s+/g, "-");
+    return text;
+}
 
 export const numb = function (number: string | number, options = {} ) {
     const config = {

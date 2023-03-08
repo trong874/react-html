@@ -2,12 +2,13 @@ import * as request from '@/utils/request'
 import * as Cookie from 'cookies-next';
 import {GetServerSideProps} from "next";
 import {actions, useStore} from "@/store";
+import {useState} from "react";
 
-const Profile: GetServerSideProps = async ({ req, res }) => {
-    if (!Cookie.hasCookie('auth-token',{ req, res })) {
+const Profile = async () => {
+    if (!Cookie.hasCookie('auth-token')) {
         return null;
     }
-    const token = Cookie.getCookie('auth-token',{ req, res });
+    const token = Cookie.getCookie('auth-token');
     return await request.get('profile',{token}).catch(res => {
         return null
     });

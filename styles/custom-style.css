@@ -293,7 +293,26 @@ a:focus {
         box-shadow: -38px 6px, -14px -6px, 14px 6px;
     }
 }
+.loader-card {
+    width: 100%;
+    height: 220px;
+    background:
+            linear-gradient(0.25turn, transparent, #FFF, transparent),
+            linear-gradient(#DDD, #DDD),
+            linear-gradient(#DDD, #DDD),
+            linear-gradient(#DDD, #DDD);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 100% 220px, 100% 130px, 100px 15px, 150px 15px;
+    background-position: -215px 0, 0 0, 15px 150px, 15px 180px;
+    animation: loading-card 1.5s infinite;
+}
 
+@keyframes loading-card {
+    to {
+        background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
+    }
+}
 .nav-active,
 .nav-active:hover,
 .nav-active:focus

@@ -1,4 +1,4 @@
-import React, {memo, ReactNode} from "react";
+import React, {memo, ReactNode, useEffect, useState} from "react";
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import {Tooltip, Whisper} from "rsuite";
@@ -9,15 +9,20 @@ import {Auth} from "@/components/common";
 
 type PropsCustom = {
     children: ReactNode,
-    "data-profile": {}
 }
 
 function MenuProfileLayout(props: PropsCustom) {
+
     const [state, dispatch] = useStore();
+    const [isLogin, setIsLogin] = useState(false);
+
+    useEffect(() => {
+        setIsLogin(state.isLogin)
+    },[])
     const router = useRouter();
     return (
         <Auth>
-            <Layout data-profile={props['data-profile']}>
+            <Layout>
                 <div className="max-w-6xl mx-auto my-8 grid grid-cols-10 gap-2 px-2 relative">
                     <div className="col-span-2 hidden md:block">
                         <div className="w-full md:bg-transparent p-2 md:p-0 sticky top-20">
@@ -175,7 +180,8 @@ function MenuProfileLayout(props: PropsCustom) {
                 </div>
             </Layout>
         </Auth>
-    );
+
+    )
 }
 
 export default MenuProfileLayout

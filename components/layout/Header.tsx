@@ -124,6 +124,13 @@ const Header = () => {
                                width={200}
                                alt="" className="w-auto h-10 md:h-12 relative"/>
                     </Link>
+                    <Link href={'/dich-vu'}
+                          className="hidden md:flex ml-10 font-bold text-red-600 hover:text-red-500 px-3 text-sm items-center cursor-pointer">
+                        <span className="inline-flex items-center justify-center h-6 w-7 rounded bg-red-100 mr-2">
+                            <i className="text-lg bx bx-joystick-alt"/>
+                        </span>
+                        DỊCH VỤ
+                    </Link>
                     <Link href={'/myaccount/recharge'}
                           className="hidden md:flex ml-10 font-bold text-red-600 hover:text-red-500 px-3 text-sm items-center cursor-pointer">
                         <span className="inline-flex items-center justify-center h-6 w-7 rounded bg-red-100 mr-2">
@@ -138,7 +145,7 @@ const Header = () => {
                                 : dispatch(actions.setToggleModalLogin(true))
                             }>
                         <span className="inline-flex items-center justify-center h-6 w-7 rounded bg-red-100 mr-2">
-                            <i className="text-lg bx bx-dollar"/>
+                            <i className="text-lg bx bx-credit-card-front"/>
                         </span>
                         NẠP ATM/MOMO
                     </button>
