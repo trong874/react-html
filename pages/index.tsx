@@ -3,9 +3,11 @@ import SectionFirst from "@/components/widget/SectionFirst";
 import Marquee from "react-fast-marquee/dist";
 import SectionHome from "@/components/widget/SectionHome";
 import Head from "next/head";
+import SEO from "@/components/common/Seo";
 import {actions, useStore} from "@/store";
+import {useRouter} from "next/router";
 
-const data1 = Array.from({length:8}).map((item:any,index:number) => {
+const data1 = Array.from({length: 8}).map((item: any, index: number) => {
     return {
         title: `Item ${index}`,
         image: `https://cdns.diongame.com/static/image-3b242b5c-46af-489a-9b3e-381fd9ce988e.gif`,
@@ -13,7 +15,7 @@ const data1 = Array.from({length:8}).map((item:any,index:number) => {
         tag: `Rẻ nhất thị trường`,
     }
 })
-const data2 = Array.from({length:8}).map((item:any,index:number) => {
+const data2 = Array.from({length: 8}).map((item: any, index: number) => {
     return {
         title: `Vòng quay nổ hũ ${index}`,
         image: `https://cdn.upanh.info/storage/upload/images/DICH-VU-BAN-HONG-NGOC.gif`,
@@ -24,13 +26,17 @@ const data2 = Array.from({length:8}).map((item:any,index:number) => {
 })
 
 
-
 export default function Home() {
     return (
         <>
-            <Head>
-                <title>NextJS</title>
-            </Head>
+            <SEO
+                data={{
+                    title: 'Trang chủ',
+                    description: 'Chúng tôi chuyên cung cấp dịch vụ game ngọc rồng giá rẻ nhất',
+                    url: '',
+                    thumbnailUrl: '/imager_thumbnail.jpg',
+                }}
+            />
 
             <SectionFirst/>
 
