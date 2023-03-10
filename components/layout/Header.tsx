@@ -131,12 +131,12 @@ const Header = () => {
                         </span>
                         DỊCH VỤ
                     </Link>
-                    <Link href={'/myaccount/recharge'}
+                    <Link href={'/mua-acc'}
                           className="hidden md:flex ml-10 font-bold text-red-600 hover:text-red-500 px-3 text-sm items-center cursor-pointer">
                         <span className="inline-flex items-center justify-center h-6 w-7 rounded bg-red-100 mr-2">
-                            <i className="text-lg bx bx-dollar"/>
+                            <i className="text-lg bx bx-joystick"/>
                         </span>
-                        NẠP THẺ
+                        MUA NICK
                     </Link>
                     <button type={'button'}
                             className="hidden md:flex ml-10 font-bold text-red-600 hover:text-red-500 px-3 text-sm items-center cursor-pointer"

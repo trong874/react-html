@@ -18,21 +18,21 @@ export default function SEO({data}: SeoProps) {
     const {title, description, url, thumbnailUrl} = data
     return (
         <Head>
-            <title>{title} | shopngocrong.net</title>
+            <title>{title}</title>
             <meta name="title" content={title}/>
             <meta name="description" content={description}/>
 
             <meta property="og:type" content="website"/>
-            <meta property="og:url" content={`${process.env.HOST_URL}/${url}`}/>
+            <meta property="og:url" content={process.env.HOST_URL + url}/>
             <meta property="og:title" content={title}/>
             <meta property="og:description" content={description}/>
-            <meta property="og:image" content={thumbnailUrl}/>
+            <meta property="og:image" content={process.env.HOST_URL + thumbnailUrl}/>
 
             <meta property="twitter:card" content="summary_large_image"/>
-            <meta property="twitter:url" content={`${process.env.HOST_URL}/${url}`}/>
+            <meta property="twitter:url" content={process.env.HOST_URL + url}/>
             <meta property="twitter:title" content={title}/>
             <meta property="twitter:description" content={description}/>
-            <meta property="twitter:image" content={thumbnailUrl}/>
+            <meta property="twitter:image" content={process.env.HOST_URL +  thumbnailUrl}/>
         </Head>
     );
 }

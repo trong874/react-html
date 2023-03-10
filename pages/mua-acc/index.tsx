@@ -98,33 +98,25 @@ export default function Index(props: Props) {
                 />
             </div>
         </div>
-        {
-            firstLoad &&
-            <>
-                <div className="grid grid-cols-12 gap-3">
-                {
-                    Array.from({length:8}).map((item,index) => {
-                        return <div
-                            key={index}
-                            className={'col-span-6 sm:col-span-6 md:col-span-3 bg-white shadow-sm rounded-b-sm border md:border-0 md:rounded-b relative'}>
-                            <div className={'loader-card'}/>
-                        </div>
-                    })
-                }
-                </div>
-            </>
-        }
-        <div className="grid grid-cols-12 gap-3">
+
+        <div className="grid grid-cols-12 gap-3 list-category-nick">
+            {
+                firstLoad &&
+                <>
+                    {
+                        Array.from({length:8}).map((item,index) => {
+                            return <div
+                                key={index}
+                                className={'col-span-6 sm:col-span-6 md:col-span-3 bg-white shadow-sm rounded-b-sm border md:border-0 md:rounded-b relative'}>
+                                <div className={'loader-card'}/>
+                            </div>
+                        })
+                    }
+                </>
+            }
 
             {categoryAccount && categoryAccount.map((item: any, index: number) => {
-
-                return <Card key={index}
-                             data={item}
-                             className={
-                                 `${
-                                     convertToSlug(item.title).indexOf(keywordFilter) === -1 ? 'hidden' : ''
-                                 }`
-                             }/>
+                return convertToSlug(item.title).indexOf(keywordFilter) !== -1 && <Card key={index} data={item}/>
             })}
         </div>
     </>

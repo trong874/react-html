@@ -6,6 +6,7 @@ const initState = {
     isLogin: false,
     profileUser: {},
     preUrl: '/',
+    imgPlaceholder: '/placeholder-image.png',
 }
 
 function reducer(state:any,action:any) {

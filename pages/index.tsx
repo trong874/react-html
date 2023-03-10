@@ -31,7 +31,7 @@ export default function Home() {
         <>
             <SEO
                 data={{
-                    title: 'Trang chủ',
+                    title: 'Trang chủ | Shopngocrong.net',
                     description: 'Chúng tôi chuyên cung cấp dịch vụ game ngọc rồng giá rẻ nhất',
                     url: '',
                     thumbnailUrl: '/imager_thumbnail.jpg',

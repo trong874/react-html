@@ -319,3 +319,21 @@ a:focus {
 {
     color: rgba(220,38,38,var(--tw-text-opacity));
 }
+
+.list-category-nick:empty {
+    position: relative;
+    height: 100px;
+}
+
+.list-category-nick:empty:after {
+    content: 'Không có kết quả nào!';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    padding: .5rem 1rem;
+    color: var(--rs-red-600);
+    font-weight: 700;
+    border-radius: .5rem;
+}

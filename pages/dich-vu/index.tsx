@@ -17,9 +17,10 @@ type Props = {
 
 const per_page = 8;
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({ query,res,req }) => {
     const {page = 1} = query;
     const services = await request.get(`/service?page=${page}`,{limit:per_page});
+    
     return {
         props: {
             services: services.data,
